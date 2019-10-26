@@ -40,7 +40,7 @@ This data is from the 2018 General Social Survey. The first blocks of R-code has
 
 
 ## Methods
-
+Depending on two varibles of interest.
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
 ##Results
@@ -48,27 +48,38 @@ This data is from the 2018 General Social Survey. The first blocks of R-code has
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ### Descriptive Results
-
+1.130437 4.695225
 #### Graphical Descriptive Results
-
+In these graphical results the results are pretty close but still need to be proven in the hypothesis. 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
-
+```{r}
+barchartGC(~CAPPUN + OWNGUN,data=mydata4)
+```
 #### Numerical Descriptive Results
-
+The patterns that show right here are very close in numbers but but those in favor that dont have a gun still have higher results.
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table1 <- xtabs(~CAPPUN + OWNGUN, data=mydata4)
+rowPerc(table1)
+colPerc(table1)
+```
 ### Inferential Results
-
+The hypothesis states that there can be many rsults between 1.3 and 4.6. There can be a lot of hypothesis between those.
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
-
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
 # Introduction Question 2
-
+There is enough evidence to show that this can be proven.
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
 Now answer Is belief in the bigbang theory (BIGBANG) independent of belief in the afterlife (POSTLIFE)
 
 ## Methods
-
+Depending on two varibles of interest.
 <!--Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.!-->
 
 ##Results
@@ -76,21 +87,32 @@ Now answer Is belief in the bigbang theory (BIGBANG) independent of belief in th
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ### Descriptive Results
-
+0.1410591 1.0968350
 #### Graphical Descriptive Results
-
+The graph that is shown shows that most believe in god than the big bang theory. But more evidence nees to be shown.
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
-
+```{r}
+barchartGC(~BIGBANG + POSTLIFE,data=mydata4)
+```
 #### Numerical Descriptive Results
-
+The numerical results show the two tablesw being shown and the difference between them. 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+table2 <- xtabs(~BIGBANG + POSTLIFE, data=mydata4)
+rowPerc(table2)
+colPerc(table2)
+```
 ### Inferential Results
-
+The hypothesis shows that most believe in the postlife than the big bang theory.
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
-
+```{r}
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
+```
 # Introduction Question 3
-
+There is not enough evidence to be shown.
 <!--In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?!-->
 
 Finally determine if a persons opinion on death penalty (CAPPUN) is independent of their race (RACE).
@@ -104,21 +126,31 @@ Finally determine if a persons opinion on death penalty (CAPPUN) is independent 
 <!--Divide this section into two sub-sections:  One for your descriptive  results and one for your inferential results.!-->
 
 ### Descriptive Results
-
+P-Value = 9e-04 
 #### Graphical Descriptive Results
-
+```{r}
+barchartGC(~CAPPUN + RACE,data=mydata4)
+```
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
-
+Black people are more oppose than the other people.
 #### Numerical Descriptive Results
-
+79.31 do favor are white and 65 that are black. 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
-
+```{r}
+table3 <- xtabs(~CAPPUN + RACE, data=mydata4)
+rowPerc(table3)
+colPerc(table3)
+```
 ### Inferential Results
+```{r}
+chisq.test(table3)
+chisqtestGC(table3)
 
+```
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
-
+The hypothesis is last than 5% which can be 0. 
 
 # Discussion and Conclusion
-
+Each of these questions had some sort or relationship but were completly different all had different results and had to be proven different. 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
